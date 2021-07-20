@@ -11,6 +11,7 @@ exports.handler = async (event) => {
     lat,
     lng
   } = event;
+  console.log(event);
   console.log("lat:"+lat);
   console.log("lng:"+lng);
   const url = new URL(path, WEATHERAPI_ORIGIN);
