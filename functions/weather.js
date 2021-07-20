@@ -1,5 +1,3 @@
-const GOOGLEAPIS_ORIGIN = "";
-
 const headers = {
    "Access-Control-Allow-Origin": process.env.HOST,
    "Content-Type": "application/json; charset=utf-8",
@@ -13,7 +11,8 @@ exports.handler = async (event) => {
     lat,
     lng
   } = event;
-
+  console.log("lat:"+lat);
+  console.log("lng:"+lng);
   const url = new URL(path, WEATHERAPI_ORIGIN);
   const parameters = querystring.stringify({
     lat: lat,
@@ -21,11 +20,12 @@ exports.handler = async (event) => {
     appid: process.env.API_KEY,
   });
   url.search = parameters;
-
+  console.log(url);
+  console.log(parameters);
   try {
     const response = await fetch(url);
     const body = await response.json();
-
+    console.log(body);
     if (body.error) {
       return {
         statusCode: body.error.code,
