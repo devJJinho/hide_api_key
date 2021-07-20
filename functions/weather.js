@@ -29,7 +29,8 @@ exports.handler = async (event) => {
   console.log(parameters);
   try {
     const response = await fetch(url);
-    const body = await response.json();
+    console.log(response);
+    //const body = await response.json();
     //console.log(body);
     if (body.error) {
       return {
