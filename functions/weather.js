@@ -30,7 +30,7 @@ exports.handler = async (event) => {
   try {
     const response = await fetch(url);
     const body = await response.json();
-    console.log(body);
+    //console.log(body);
     if (body.error) {
       return {
         statusCode: body.error.code,
