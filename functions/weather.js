@@ -7,11 +7,12 @@ const WEATHERAPI_ORIGIN="https://api.openweathermap.org";
 const path="data/2.5/weather";
 
 exports.handler = async (event) => {
+  const entries=new URLSearchParams(event.rawQuery).entries();
+  const geo = paramsToObject(entries);
   const {
     lat,
     lng
-  } = event;
-  console.log(event);
+  }=geo;
   console.log("lat:"+lat);
   console.log("lng:"+lng);
   const url = new URL(path, WEATHERAPI_ORIGIN);
@@ -51,3 +52,11 @@ exports.handler = async (event) => {
     };
   }
 };
+
+function paramsToObject(entries) {
+    const result = {}
+    for(const [key, value] of entries) {
+      result[key] = value;
+    }
+    return result;
+  };
