@@ -1,4 +1,6 @@
-const querystring = require("querystring");
+const querystring = require('querystring');
+//const fetch = require("node-fetch");
+
 const headers = {
    "Access-Control-Allow-Origin": process.env.HOST,
    "Content-Type": "application/json; charset=utf-8",
@@ -17,7 +19,7 @@ exports.handler = async (event) => {
   console.log("lat:"+lat);
   console.log("lng:"+lng);
   const url = new URL(path, WEATHERAPI_ORIGIN);
-  const parameters = stringify({
+  const parameters = querystring.stringify({
     lat: lat,
     lon: lng,
     appid: process.env.API_KEY,
