@@ -14,7 +14,7 @@ exports.handler = async (event) => {
     lng
   } = event;
 
-  const url = new URL(path, WEATHERAPI_ORIGIN);\
+  const url = new URL(path, WEATHERAPI_ORIGIN);
   const parameters = querystring.stringify({
     lat: lat,
     lon: lng,
