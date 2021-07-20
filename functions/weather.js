@@ -16,7 +16,7 @@ exports.handler = async (event) => {
   console.log("lat:"+lat);
   console.log("lng:"+lng);
   const url = new URL(path, WEATHERAPI_ORIGIN);
-  const parameters = querystring.stringify({
+  const parameters = stringify({
     lat: lat,
     lon: lng,
     appid: process.env.API_KEY,
