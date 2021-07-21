@@ -1,5 +1,5 @@
 const querystring = require('querystring');
-//const fetch = require("node-fetch");
+const fetch = require("node-fetch");
 
 const headers = {
    "Access-Control-Allow-Origin": process.env.HOST,
@@ -30,7 +30,7 @@ exports.handler = async (event) => {
   try {
     const response = await fetch(url);
     console.log(response);
-    const body = await JSON.stringify(response);
+    const body = await response.json();
     console.log(body);
     if (body.error) {
       return {
