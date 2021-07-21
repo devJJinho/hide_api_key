@@ -1,0 +1,12 @@
+{
+    "name": "hide-api-key-weatherapi",
+    "version": "0.1.1",
+    "main": "",
+    "repository": "https://github.com/devJJinho/hide_api_key.git",
+    "author": "DevJJinho <jhjeong710@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+      "node-fetch": "^2.6.1",
+      "querystring": "^0.2.1"
+    }
+  }
