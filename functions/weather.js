@@ -64,7 +64,7 @@ exports.handler = async (event) => {
       statusCode: 400,
       ok: false,
       headers,
-      body:{"error":"Unauthrized access"}
+      body:JSON.stringify({"error":"Unauthrized access"})
     };
   }
 };
