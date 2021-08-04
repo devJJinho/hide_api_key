@@ -11,7 +11,11 @@ const path="data/2.5/weather";
 
 exports.handler = async (event) => {
   console.log(JSON.stringify(event));
-  if(event.origin!=process.env.HOST){
+  console.log(event);
+  console.log(typeof(event));
+  console.log(event.origin);
+  console.log(JSON.parse(event).origin);
+  if(event.origin!==process.env.HOST){
     console.log(event.origin);
     console.log(process.env.HOST);
     return {
