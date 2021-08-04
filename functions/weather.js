@@ -11,10 +11,9 @@ const path="data/2.5/weather";
 
 exports.handler = async (event) => {
   console.log(event);
-  console.log(typeof(event.Origin));
+  console.log(typeof(event.multiValueHeaders.Origin));
   console.log(typeof(process.env.HOST));
-
-  const sourceOri=new URL(String(event.Origin));
+  const sourceOri=new URL(event.multiValueHeaders.Origin);
   const acceptOri=new URL(process.env.HOST);
   console.log(sourceOri);
   console.log(acceptOri);
