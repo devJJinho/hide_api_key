@@ -10,19 +10,12 @@ const WEATHERAPI_ORIGIN="https://api.openweathermap.org";
 const path="data/2.5/weather";
 
 exports.handler = async (event) => {
-  console.log(JSON.stringify(event));
-  console.log(event);
-  console.log(typeof(event));
-  console.log(event.origin);
-  console.log(JSON.parse(event).origin);
-  if(event.origin!==process.env.HOST){
-    console.log(event.origin);
-    console.log(process.env.HOST);
+  if(event.Origin!==process.env.HOST){
     return {
       statusCode: 400,
       ok: false,
       headers,
-      source:event.origin
+      source:event.Origin
     };
   }
   const entries=new URLSearchParams(event.rawQuery).entries();
