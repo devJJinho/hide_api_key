@@ -13,8 +13,6 @@ exports.handler = async (event) => {
   try{
     const sourceOri=new URL(event.multiValueHeaders.Origin);
     const acceptOri=new URL(process.env.HOST);
-    console.log(sourceOri);
-    console.log(acceptOri);
     if(sourceOri.origin==acceptOri.origin){
       const entries=new URLSearchParams(event.rawQuery).entries();
       const geo = paramsToObject(entries);
@@ -32,7 +30,6 @@ exports.handler = async (event) => {
       try {
         const response = await fetch(url);
         const body = await response.json();
-        console.log(body);
         if (body.error) {
           return {
             statusCode: body.error.code,
