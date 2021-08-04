@@ -10,11 +10,11 @@ const WEATHERAPI_ORIGIN="https://api.openweathermap.org";
 const path="data/2.5/weather";
 
 exports.handler = async (event) => {
-  const origin=new URL(event.Origin);
+  const sourceOri=new URL(event.Origin);
   const acceptOri=new URL(process.env.HOST);
-  console.log(origin);
-  console.long(acceptOri);
-  if(origin!=acceptOri){
+  console.log(sourceOri);
+  console.log(acceptOri);
+  if(sourceOri.origin!=acceptOri.origin){
     return {
       statusCode: 400,
       ok: false,
