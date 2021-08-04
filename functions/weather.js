@@ -10,9 +10,12 @@ const WEATHERAPI_ORIGIN="https://api.openweathermap.org";
 const path="data/2.5/weather";
 
 exports.handler = async (event) => {
+  console.log(event);
   if(event.origin!=process.env.HOST){
+    console.log(event.origin);
+    console.log(process.env.HOST);
     return {
-      statusCode: "Unauthorized request",
+      statusCode: 400,
       ok: false,
       headers,
       source:event.origin
