@@ -10,7 +10,10 @@ const WEATHERAPI_ORIGIN="https://api.openweathermap.org";
 const path="data/2.5/weather";
 
 exports.handler = async (event) => {
-  const sourceOri=new URL(event.Origin);
+  console.log(typeof(event.Origin));
+  console.log(typeof(process.env.HOST));
+
+  const sourceOri=new URL(String(event.Origin));
   const acceptOri=new URL(process.env.HOST);
   console.log(sourceOri);
   console.log(acceptOri);
