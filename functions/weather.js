@@ -2,7 +2,7 @@ const querystring = require('querystring');
 const fetch = require('node-fetch');
 
 const headers = {
-   "Access-Control-Allow-Origin": process.env.HOST,
+   "Access-Control-Allow-Origin": "*",
    "Content-Type": "application/json; charset=utf-8",
 };
 
